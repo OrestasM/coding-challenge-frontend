@@ -10,7 +10,7 @@ class Archived extends React.Component{
     render(){
         // console.log(this.props.archived)
         return(
-            <div>
+            <div className="wrapper">
             <h1>Archived</h1>
 
             {this.props.archived.map(item=>(

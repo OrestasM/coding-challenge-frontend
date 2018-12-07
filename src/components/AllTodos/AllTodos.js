@@ -10,7 +10,7 @@ class All extends React.Component{
     render(){
         console.log(this.props.all)
         return(
-            <div>
+            <div className="wrapper">
             <h1>All todos</h1>
 
             {this.props.all.map(item=>(
