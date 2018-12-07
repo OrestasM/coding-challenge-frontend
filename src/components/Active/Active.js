@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchActive, archiveFromAll } from '../../actions/todoActions';
+import { fetchActive, archive } from '../../actions/todoActions';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -55,8 +55,8 @@ class Active extends React.Component{
         this.props.fetchActive();
     }
 
-    handleArchive(id){
-        this.props.archive(id)
+    handleArchive(id, props){
+        props.archive(id)
     }
     handleChange = (e) => {
         this.setState({[e.target.id]: e.target.value});
@@ -64,7 +64,10 @@ class Active extends React.Component{
     onConfirm(title, body, props){
         axios.post('http://localhost:5000/todo/add', {title, body})
             .then(()=>{props.fetchActive()})
-        
+        this.setState({
+            title:'',
+            body:''
+        })
         this.handleClose();
     }
 
@@ -105,7 +108,6 @@ class Active extends React.Component{
                         label="Title"
                         type="title"
                         fullWidth
-                        value={this.state.title}
                         onChange={e => this.handleChange(e)}
 
                         />
@@ -147,7 +149,7 @@ class Active extends React.Component{
                         </Typography>
                     </Grid>
                     <Grid item>
-                        <Button variant="contained" color="primary" onClick={()=>this.handleArchive(item.id)}>
+                        <Button variant="contained" color="primary" onClick={()=>this.handleArchive(item.id, this.props)}>
                             Move to archived
                         </Button>
                     </Grid>
@@ -171,4 +173,4 @@ Active.propTypes = {
   };
   
 
-export default (connect(mapStateToProps, { fetchActive, archiveFromAll }))(withStyles(styles)(Active));
+export default (connect(mapStateToProps, { fetchActive, archive }))(withStyles(styles)(Active));

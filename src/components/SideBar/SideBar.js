@@ -88,10 +88,6 @@ class SideBar extends React.Component {
     open: false,
   };
 
-  componentWillMount(){
-    //   this.props.fetchActive();
-  }
-
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };

@@ -35,11 +35,6 @@ class All extends React.Component{
         this.props.fetchAll();
     }
 
-    handleArchive(id){
-        this.props.archive(id)
-        
-    }
-
     render(){
         const { classes } = this.props;
         return(
