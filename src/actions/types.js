@@ -1,3 +1,5 @@
 export const FETCH_TODOS = 'FETCH_TODOS';
 export const NEW_TODO = 'NEW_TODO';
 export const ARCHIVE_TODO = 'ARCHIVE_TODO';
+export const FETCH_ARCHIVED_TODOS = 'FETCH_ARCHIVED_TODOS';
+export const FETCH_ALL_TODOS = 'FETCH_ALL_TODOS';

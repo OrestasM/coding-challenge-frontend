@@ -19,6 +19,7 @@ class App extends Component {
             <SideBar>
                 <Switch>
                     <Route exact path="/" component={withRouter(Home)}  />
+                    <Route exact path="/home" component={withRouter(Home)}  />
                     <Route exact path="/active" component={withRouter(Active)}  />
                     <Route exact path="/archived" component={withRouter(Archived)}  />
                     <Route exact path="/all" component={withRouter(AllTodos)}  />

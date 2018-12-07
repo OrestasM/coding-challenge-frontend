@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchTodos } from '../../actions/todoActions';
+import { fetchActive } from '../../actions/todoActions';
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -90,7 +90,7 @@ class SideBar extends React.Component {
   };
 
   componentWillMount(){
-      this.props.fetchTodos();
+    //   this.props.fetchActive();
   }
 
   handleDrawerOpen = () => {
@@ -169,9 +169,9 @@ class SideBar extends React.Component {
         >
             {children}
           <div className={classes.drawerHeader} />
-          {this.props.todos.map(item=>(
+          {/* {this.props.active.map(item=>(
               <div key={item.id}>{item.title}{item.id}</div>
-          ))}
+          ))} */}
         </main>
       </div>
     );
@@ -184,8 +184,8 @@ SideBar.propTypes = {
 };
 
 const mapStateToProps = state =>({
-    todos: state.todos.todo
+    active: state.todos.active
 })
 
-// export default connect(mapStateToProps, {fetchTodos})(SideBar);
-export default withRouter(connect(mapStateToProps, {fetchTodos})(withStyles(styles, { withTheme: true })(SideBar)))
+// export default connect(mapStateToProps, {fetchActive})(SideBar);
+export default withRouter(connect(mapStateToProps, {fetchActive})(withStyles(styles, { withTheme: true })(SideBar)))
