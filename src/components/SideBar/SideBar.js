@@ -8,18 +8,17 @@ import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Active from '@material-ui/icons/AssignmentTurnedInOutlined';
 import Archive from '@material-ui/icons/AssignmentLateOutlined';
+import Home from '@material-ui/icons/HomeOutlined';
 import AllTodos from '@material-ui/icons/BookOutlined';
 import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -145,7 +144,7 @@ class SideBar extends React.Component {
           <Divider />
           <MenuList>
           <MenuItem component={Link} to="/home">
-                <ListItemIcon><Active /></ListItemIcon>
+                <ListItemIcon><Home /></ListItemIcon>
                 <ListItemText primary="Home" />
             </MenuItem>
             <MenuItem component={Link} to="/active">
@@ -169,9 +168,6 @@ class SideBar extends React.Component {
         >
             {children}
           <div className={classes.drawerHeader} />
-          {/* {this.props.active.map(item=>(
-              <div key={item.id}>{item.title}{item.id}</div>
-          ))} */}
         </main>
       </div>
     );
