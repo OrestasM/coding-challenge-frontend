@@ -21,6 +21,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Active from '@material-ui/icons/AssignmentTurnedInOutlined';
 import Archive from '@material-ui/icons/AssignmentLateOutlined';
 import AllTodos from '@material-ui/icons/BookOutlined';
+import MenuList from '@material-ui/core/MenuList';
+import MenuItem from '@material-ui/core/MenuItem';
+import { Link, withRouter } from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -99,7 +102,7 @@ class SideBar extends React.Component {
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes, theme, children } = this.props;
     const { open } = this.state;
 
     return (
@@ -140,26 +143,31 @@ class SideBar extends React.Component {
             </IconButton>
           </div>
           <Divider />
-          <List>
-            <ListItem button>
+          <MenuList>
+          <MenuItem component={Link} to="/home">
+                <ListItemIcon><Active /></ListItemIcon>
+                <ListItemText primary="Home" />
+            </MenuItem>
+            <MenuItem component={Link} to="/active">
                 <ListItemIcon><Active /></ListItemIcon>
                 <ListItemText primary="Active To-Do's" />
-            </ListItem>
-            <ListItem button>
+            </MenuItem>
+            <MenuItem component={Link} to="/archived">
                 <ListItemIcon><Archive /></ListItemIcon>
                 <ListItemText primary="Archived To-Do's" />
-            </ListItem>
-            <ListItem button>
+            </MenuItem>
+            <MenuItem component={Link} to="/all">
                 <ListItemIcon><AllTodos /></ListItemIcon>
                 <ListItemText primary="All To-Do's" />
-            </ListItem>
-          </List>
+            </MenuItem>
+          </MenuList>
         </Drawer>
         <main
           className={classNames(classes.content, {
             [classes.contentShift]: open,
           })}
         >
+            {children}
           <div className={classes.drawerHeader} />
           {this.props.todos.map(item=>(
               <div key={item.id}>{item.title}{item.id}</div>
@@ -175,11 +183,9 @@ SideBar.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-//export default withStyles(styles, { withTheme: true })(SideBar);
-
 const mapStateToProps = state =>({
-    todos: state.todos.padaryti
+    todos: state.todos.todo
 })
 
 // export default connect(mapStateToProps, {fetchTodos})(SideBar);
-export default connect(mapStateToProps, {fetchTodos})(withStyles(styles, { withTheme: true })(SideBar))
+export default withRouter(connect(mapStateToProps, {fetchTodos})(withStyles(styles, { withTheme: true })(SideBar)))

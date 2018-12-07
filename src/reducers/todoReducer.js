@@ -1,7 +1,7 @@
 import { FETCH_TODOS, NEW_TODO, ARCHIVE_TODO } from '../actions/types';
 
 const initialState = {
-    padaryti: [
+    todo: [
         {}
     ],
     item: {}
@@ -12,7 +12,7 @@ export default function(state = initialState, action){
         case FETCH_TODOS:
             return{
                 ...state,
-                padaryti: action.payload
+                todo: action.payload
             };
         case NEW_TODO:
             return{
