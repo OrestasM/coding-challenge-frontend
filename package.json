@@ -19,7 +19,7 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"docker": "docker image build -t react .",
-		"docker-start": "docker run -it react npm start"
+		"docker-start": "docker run -p 3000:3000 -it react npm start"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
