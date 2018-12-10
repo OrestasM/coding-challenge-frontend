@@ -1,4 +1,4 @@
-## Available Scripts
+## Instructions, how to launch frontend
 
     1. Clone, pull or download repository content (master branch) (I guess you already did that...)
     2. Open terminal in folder, that contains all files from GitHub repository
