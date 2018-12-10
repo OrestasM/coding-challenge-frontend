@@ -1,4 +1,10 @@
-import { FETCH_TODOS, NEW_TODO, ARCHIVE_TODO, FETCH_ARCHIVED_TODOS, FETCH_ALL_TODOS } from '../actions/types';
+import {
+    FETCH_TODOS,
+    NEW_TODO,
+    ARCHIVE_TODO,
+    FETCH_ARCHIVED_TODOS,
+    FETCH_ALL_TODOS
+} from '../actions/types';
 
 const initialState = {
     active: [],
@@ -7,30 +13,30 @@ const initialState = {
     item: {}
 }
 
-export default function(state = initialState, action){
-    switch(action.type){
+export default function (state = initialState, action) {
+    switch (action.type) {
         case FETCH_TODOS:
-            return{
+            return {
                 ...state,
                 active: action.payload
             };
         case FETCH_ARCHIVED_TODOS:
-            return{
+            return {
                 ...state,
                 archived: action.payload
             };
         case FETCH_ALL_TODOS:
-            return{
+            return {
                 ...state,
                 all: action.payload
             };
         case NEW_TODO:
-            return{
+            return {
                 ...state,
                 item: action.payload
             }
         case ARCHIVE_TODO:
-            return{
+            return {
                 ...state,
                 item: action.payload
             }

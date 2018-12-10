@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import './App.css';
 import SideBar from './components/SideBar/SideBar';
-import { Provider } from 'react-redux';
+import {
+  Provider
+} from 'react-redux';
 import store from './store';
 import Home from './components/HomePage/Home'
 import Active from './components/Active/Active';
 import Archived from './components/Archived/Archived'
 import AllTodos from './components/AllTodos/AllTodos'
-import { BrowserRouter, Switch, Route, withRouter } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  withRouter
+} from 'react-router-dom'
 
 
 class App extends Component {

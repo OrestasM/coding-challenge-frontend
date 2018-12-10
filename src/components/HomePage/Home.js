@@ -9,7 +9,6 @@ class Home extends React.Component{
                 <h1>Home</h1>
                 <Button component={Link} to="/active" color="primary"> Get STARTED! </Button>
             </div>
-
         )
     }
 }

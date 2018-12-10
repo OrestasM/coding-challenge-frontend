@@ -1,9 +1,15 @@
-import { connect } from 'react-redux';
-import { fetchActive } from '../../actions/todoActions';
+import {
+  connect
+} from 'react-redux';
+import {
+  fetchActive
+} from '../../actions/todoActions';
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
+import {
+  withStyles
+} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -22,7 +28,10 @@ import Home from '@material-ui/icons/HomeOutlined';
 import AllTodos from '@material-ui/icons/BookOutlined';
 import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Link, withRouter } from 'react-router-dom'
+import {
+  Link,
+  withRouter
+} from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -89,11 +98,15 @@ class SideBar extends React.Component {
   };
 
   handleDrawerOpen = () => {
-    this.setState({ open: true });
+    this.setState({
+      open: true
+    });
   };
 
   handleDrawerClose = () => {
-    this.setState({ open: false });
+    this.setState({
+      open: false
+    });
   };
 
   render() {
@@ -175,9 +188,12 @@ SideBar.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state =>({
-    active: state.todos.active
+const mapStateToProps = state => ({
+  active: state.todos.active
 })
 
-// export default connect(mapStateToProps, {fetchActive})(SideBar);
-export default withRouter(connect(mapStateToProps, {fetchActive})(withStyles(styles, { withTheme: true })(SideBar)))
+export default withRouter(connect(mapStateToProps, {
+  fetchActive
+})(withStyles(styles, {
+  withTheme: true
+})(SideBar)))
